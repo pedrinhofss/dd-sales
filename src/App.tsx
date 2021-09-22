@@ -12,12 +12,7 @@ import {
 
 const theme = extendTheme({
   colors: {
-    bg_color: '#232323',
-    brand: {
-      100: "#f7fafc",
-      // ...
-      900: "#1a202c",
-    },
+    bg_color: '#232323'
   },
 })
 
