@@ -2,37 +2,43 @@ import * as React from "react"
 import {
   ChakraProvider,
   Box,
+  extendTheme,
+  Center,
+  Heading,
   Text,
   Link,
-  VStack,
-  Code,
-  Grid,
-  theme,
+  Image
 } from "@chakra-ui/react"
-import { ColorModeSwitcher } from "./ColorModeSwitcher"
-import { Logo } from "./Logo"
+
+const theme = extendTheme({
+  colors: {
+    bg_color: '#232323',
+    brand: {
+      100: "#f7fafc",
+      // ...
+      900: "#1a202c",
+    },
+  },
+})
 
 export const App = () => (
   <ChakraProvider theme={theme}>
-    <Box textAlign="center" fontSize="xl">
-      <Grid minH="100vh" p={3}>
-        <ColorModeSwitcher justifySelf="flex-end" />
-        <VStack spacing={8}>
-          <Logo h="40vmin" pointerEvents="none" />
-          <Text>
-            Edit <Code fontSize="xl">src/App.tsx</Code> and save to reload.
+    <Box bg="bg_color" h="100vh">
+      <Box p={12}>
+        <Center>
+          <Image h="300" w="300" src="/shield.png" />
+        </Center>
+      </Box>
+      <Center p={6}>
+        <Heading textColor="white" size="4xl">Domains Defenders</Heading>
+      </Center>
+      <Center>
+        <Box p={3}>
+          <Text textColor="grey" fontSize="4xl">
+            If your want to get this domain, send an email to <Link href="mailto:sales@domainsdefenders.org" textColor="blue.400">sales@domainsdefenders.org</Link>
           </Text>
-          <Link
-            color="teal.500"
-            href="https://chakra-ui.com"
-            fontSize="2xl"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn Chakra
-          </Link>
-        </VStack>
-      </Grid>
+        </Box>
+      </Center>
     </Box>
   </ChakraProvider>
 )
